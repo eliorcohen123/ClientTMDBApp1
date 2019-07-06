@@ -44,10 +44,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void queryAndDisplayAll() {
         Uri uri = Uri.parse("content://eliorcohen.com.tmdbapp.MovieContentProvider");
         Cursor cursor = getContentResolver().query(uri, null, null, null, null);
-        assert cursor != null;
-        while (cursor.moveToNext()) {
-            String movieName = cursor.getString(cursor.getColumnIndex("title"));
-            myText1.append(movieName + "\n");
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                String movieName = cursor.getString(cursor.getColumnIndex("title"));
+                myText1.append(movieName + "\n");
+            }
+            cursor.close();
         }
     }
 
