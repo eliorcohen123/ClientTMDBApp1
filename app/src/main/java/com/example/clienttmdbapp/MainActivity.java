@@ -23,12 +23,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
 
         initUI();
+        initListeners();
     }
 
     private void initUI() {
         myText1 = findViewById(R.id.myText);
         show1 = findViewById(R.id.show);
+    }
 
+    private void initListeners() {
         show1.setOnClickListener(this);
     }
 
